@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  uc-proxy:
+    build: .
+    image: local/uc-proxy
+    volumes:
+      - __LOCAL_MIRROR_PATH__:/usr/share/nginx/html
+    restart: always
+    environment:
+      TZ: "America/Montreal"
+    ports:
+      - 80:80/tcp
+      - 443:443/tcp
